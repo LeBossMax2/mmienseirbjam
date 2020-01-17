@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour
+public class Thief : MonoBehaviour
 {
+    public int score;
     public float speed;
     public Rigidbody2D myRigidBody;
 
