@@ -1,17 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Thief : MonoBehaviour
 {
     public TurnManager turnManager;
-    public int score = 0;
+    public ScoreManager scoreManager;
+    private int score = 0;
     public float speed;
     private Rigidbody2D myRigidBody;
 
     private Vector2 movementVector;
 
     public int paintingsCarriedScore { get; set; } = 0;
+
     public int paintingsCarriedCount { get; set; } = 0;
     public bool IsInteracting { get; set; }
 
@@ -33,5 +36,11 @@ public class Thief : MonoBehaviour
     {
         myRigidBody.velocity = turnManager.IsThiefTurn && !IsInteracting ? movementVector * speed : Vector2.zero;
 
+    }
+
+    public void AddScore(int score)
+    {
+        this.score += score;
+        scoreManager.SetThiefScore(this.score);
     }
 }

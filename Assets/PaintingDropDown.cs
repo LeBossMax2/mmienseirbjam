@@ -8,7 +8,7 @@ public class PaintingDropDown : InteractionObject
 
     protected override void OnInteractionEnded()
     {
-        Thief.score += Thief.paintingsCarriedScore;
+        Thief.AddScore(Thief.paintingsCarriedScore);
         Thief.paintingsCarriedScore = 0;
         Thief.paintingsCarriedCount = 0;
     }
