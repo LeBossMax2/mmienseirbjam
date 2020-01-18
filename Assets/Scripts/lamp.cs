@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine.Experimental.Rendering.LWRP;
+using UnityEngine.SceneManagement;
 
 public class lamp : MonoBehaviour {
-
+    public GameObject player;
     public float radius;
     public float totalDuration;
     public float blinkDuration;
@@ -80,5 +81,19 @@ public class lamp : MonoBehaviour {
             isBlinking = true;
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isOn && hasElectricity && !isBlinking)
+        {
+            Destroy(player);
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (isOn && hasElectricity && !isBlinking)
+        {
+            SceneManager.LoadSceneAsync("EndScreen");
+        }
+    }
 }
