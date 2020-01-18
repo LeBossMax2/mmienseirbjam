@@ -17,6 +17,7 @@ public class TurnManager : MonoBehaviour
     public Thief thief;
     public GameObject lampParent;
     public Animator timer;
+    public Animator partrait;
 
     public bool ActivatedLamp { get; set; } = false;
 
@@ -60,6 +61,8 @@ public class TurnManager : MonoBehaviour
         {
             thief.OnStartTurn();
             postProcess.profile = thiefProfile;
+            partrait.SetTrigger("Thief");
+            partrait.ResetTrigger("Security");
             foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
             {
                 l.killZone.enabled = true;
@@ -70,6 +73,8 @@ public class TurnManager : MonoBehaviour
             thief.OnEndTurn();
             postProcess.profile = securityProfile;
             ActivatedLamp = false;
+            partrait.SetTrigger("Security");
+            partrait.ResetTrigger("Thief");
             foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
             {
                 l.killZone.enabled = false;
