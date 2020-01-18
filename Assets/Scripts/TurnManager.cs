@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance { get; private set; }
+
     public int turnCount;
     public float thiefTurnTime;
     public float securityTurnTime;
-    public GameObject security;
+    public PostProcessVolume postProcess;
 
     private int turnIndex;
     public float turnStartTime { get; private set; }
@@ -50,11 +52,11 @@ public class TurnManager : MonoBehaviour
     {
         if (IsThiefTurn)
         {
-            security.SetActive(false);
+            postProcess.enabled = true;
         }
         else
         {
-            security.SetActive(true);
+            postProcess.enabled = false;
         }
         turnStartTime = Time.time;
     }
