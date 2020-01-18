@@ -155,4 +155,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  state: 0
+  totalDuration: 25
+  blinkDuration: 1

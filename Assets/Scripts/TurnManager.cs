@@ -11,7 +11,7 @@ public class TurnManager : MonoBehaviour
     public GameObject security;
 
     private int turnIndex;
-    private float turnStartTime;
+    public float turnStartTime { get; private set; }
 
     public bool IsThiefTurn => turnIndex % 2 == 0;
 
