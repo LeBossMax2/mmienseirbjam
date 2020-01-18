@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    public static TurnManager Instance { get; private set; }
     public int turnCount;
     public float thiefTurnTime;
     public float securityTurnTime;
@@ -18,6 +19,7 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
         initTurn();
     }
 

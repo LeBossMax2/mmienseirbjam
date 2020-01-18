@@ -6,11 +6,26 @@ using UnityEngine.Experimental.Rendering.LWRP;
 
 public class lamp : MonoBehaviour {
 
-    public int radius;
+    public float radius;
     private Light2D light;
     private CircleCollider2D collider;
     public int durability;
-    public bool state;
+    public bool isOn;
+
+    private bool hasElectricity = true;
+    public bool HasElectricity
+    {
+        get => hasElectricity;
+        set
+        {
+            hasElectricity = value;
+            if (!value)
+            {
+                light.intensity = 0;
+            }
+        }
+    }
+
     private void Start() {
         // Get component
         light = this.GetComponent<Light2D>();
@@ -19,19 +34,17 @@ public class lamp : MonoBehaviour {
         // Init radius for each component and state
         collider.radius = radius;
         light.pointLightOuterRadius = radius;
-        state = false;
+        light.intensity = 0;
+        isOn = false;
 
-    }
-
-    private void Update() {
-        if(!state){
-            light.intensity = 0;
-        }
     }
 
     void OnMouseDown() {
-        state = true;
-        StartCoroutine("blinkLight");
+        if(!TurnManager.Instance.IsThiefTurn && HasElectricity)
+        {
+            isOn = true;
+            StartCoroutine(blinkLight());
+        }
     }
 
 

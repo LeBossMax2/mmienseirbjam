@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Thief : MonoBehaviour
 {
-    public TurnManager turnManager;
     public ScoreManager scoreManager;
     private int score = 0;
     public float speed;
@@ -34,7 +33,7 @@ public class Thief : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        myRigidBody.velocity = turnManager.IsThiefTurn && !IsInteracting ? movementVector * speed : Vector2.zero;
+        myRigidBody.velocity = TurnManager.Instance.IsThiefTurn && !IsInteracting ? movementVector * speed : Vector2.zero;
 
     }
 

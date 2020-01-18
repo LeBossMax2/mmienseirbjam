@@ -6,7 +6,7 @@ public class ElectricityGenerator : InteractionObject
 {
     protected override float InteractionTime => hasElectricity ? base.InteractionTime : 0;
 
-    public TurnManager turnManager;
+    public GameObject lampParent;
     public QTEManager qte;
     private ElectricBox box;
 
@@ -19,13 +19,16 @@ public class ElectricityGenerator : InteractionObject
 
     protected override void OnInteractionEnded()
     {
-        // Disable all lights
+        foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
+        {
+            l.HasElectricity = false;
+        }
         hasElectricity = false;
     }
 
     private void OnMouseDown()
     {
-        if (!qte.IsInProgress && !turnManager.IsThiefTurn)
+        if (!qte.IsInProgress && !TurnManager.Instance.IsThiefTurn && (!hasElectricity || !box.gameObject.activeSelf))
             qte.startQTE(hasElectricity ? 3 : 4, 2, onQTESuccess);
     }
 
@@ -37,8 +40,11 @@ public class ElectricityGenerator : InteractionObject
         }
         else
         {
-            // Enable all lights
             hasElectricity = true;
+            foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
+            {
+                l.HasElectricity = false;
+            }
         }
     }
 }
