@@ -30,17 +30,10 @@ public class lamp : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        //SwitchOnLight();
         state = true;
         StartCoroutine("blinkLight");
-        
     }
 
-    private void SwitchOnLight(){
-        durability = 2;
-        //IEnumerator blink = blinkLight();
-        //StartCoroutine("blink");
-    }
 
     public IEnumerator blinkLight(){
 
