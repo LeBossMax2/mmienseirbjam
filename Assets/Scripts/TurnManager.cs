@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class TurnManager : MonoBehaviour
 {
+    public static TurnManager Instance { get; private set; }
+
     public int turnCount;
     public float thiefTurnTime;
     public float securityTurnTime;
-    public GameObject security;
+    public PostProcessVolume postProcess;
+    public PostProcessProfile thiefProfile;
+    public PostProcessProfile securityProfile;
+
+    public bool ActivatedLamp { get; set; } = false;
 
     private int turnIndex;
-    private float turnStartTime;
+    public float turnStartTime { get; private set; }
 
     public bool IsThiefTurn => turnIndex % 2 == 0;
 
@@ -18,6 +25,7 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
         initTurn();
     }
 
@@ -38,8 +46,6 @@ public class TurnManager : MonoBehaviour
         }
         else
         {
-            //TODO tick lights
-
             initTurn();
         }
     }
@@ -48,11 +54,12 @@ public class TurnManager : MonoBehaviour
     {
         if (IsThiefTurn)
         {
-            security.SetActive(false);
+            postProcess.profile = thiefProfile;
         }
         else
         {
-            security.SetActive(true);
+            postProcess.profile = securityProfile;
+            ActivatedLamp = false;
         }
         turnStartTime = Time.time;
     }

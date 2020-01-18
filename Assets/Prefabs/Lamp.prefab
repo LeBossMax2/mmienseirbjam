@@ -155,6 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390e881b5905a1e42a65e6d971948ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   radius: 2.5
   durability: 0
   state: 0
+=======
+  radius: 2
+  totalDuration: 25
+  blinkDuration: 1
+>>>>>>> 5b00b288815ea817a2d14d187cf3f7ee5e72e542
