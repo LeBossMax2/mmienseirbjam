@@ -29,7 +29,7 @@ public class ElectricityGenerator : InteractionObject
     private void OnMouseDown()
     {
         if (!qte.IsInProgress && !TurnManager.Instance.IsThiefTurn && (!hasElectricity || !box.gameObject.activeSelf))
-            qte.startQTE(hasElectricity ? 3 : 4, 2, onQTESuccess);
+            qte.startQTE(hasElectricity ? 3 : 4, 2.5f, onQTESuccess);
     }
 
     private void onQTESuccess()

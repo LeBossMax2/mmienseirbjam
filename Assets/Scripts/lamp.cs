@@ -9,6 +9,7 @@ public class lamp : MonoBehaviour {
     public float radius;
     public float totalDuration;
     public float blinkDuration;
+    public CircleCollider2D killZone { get; private set; }
 
     private bool isOn = false;
     private float activeTimer;
@@ -32,10 +33,10 @@ public class lamp : MonoBehaviour {
     private void Start() {
         // Get component
         light = this.GetComponent<Light2D>();
-        CircleCollider2D collider = this.GetComponent<CircleCollider2D>();
+        killZone = this.GetComponent<CircleCollider2D>();
 
         // Init radius for each component and state
-        collider.radius = radius;
+        killZone.radius = radius;
         light.pointLightOuterRadius = radius;
         light.intensity = 0;
 
@@ -71,8 +72,9 @@ public class lamp : MonoBehaviour {
         }
     }
 
-    void OnMouseDown() {
-        if(!TurnManager.Instance.IsThiefTurn && !isOn && HasElectricity && !TurnManager.Instance.ActivatedLamp && !QTEManager.Instance.IsInProgress)
+    public void OnClicked()
+    {
+        if (!TurnManager.Instance.IsThiefTurn && !isOn && HasElectricity && !TurnManager.Instance.ActivatedLamp && !QTEManager.Instance.IsInProgress)
         {
             TurnManager.Instance.ActivatedLamp = true;
             isOn = true;

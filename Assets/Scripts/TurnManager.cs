@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 public class TurnManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class TurnManager : MonoBehaviour
     public PostProcessVolume postProcess;
     public PostProcessProfile thiefProfile;
     public PostProcessProfile securityProfile;
+    public Thief thief;
+    public GameObject lampParent;
 
     public bool ActivatedLamp { get; set; } = false;
 
@@ -42,7 +45,7 @@ public class TurnManager : MonoBehaviour
         turnIndex++;
         if (turnIndex >= turnCount)
         {
-            //the end
+            SceneManager.LoadSceneAsync("EndScreen");
         }
         else
         {
@@ -54,12 +57,22 @@ public class TurnManager : MonoBehaviour
     {
         if (IsThiefTurn)
         {
+            thief.OnStartTurn();
             postProcess.profile = thiefProfile;
+            foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
+            {
+                l.killZone.enabled = true;
+            }
         }
         else
         {
+            thief.OnEndTurn();
             postProcess.profile = securityProfile;
             ActivatedLamp = false;
+            foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
+            {
+                l.killZone.enabled = false;
+            }
         }
         turnStartTime = Time.time;
     }

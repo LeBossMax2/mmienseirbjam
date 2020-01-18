@@ -15,7 +15,6 @@ public class Thief : MonoBehaviour
     private Vector2 movementVector;
 
     public int paintingsCarriedScore { get; set; } = 0;
-
     public int paintingsCarriedCount { get; set; } = 0;
     public bool IsInteracting { get; set; }
 
@@ -27,28 +26,34 @@ public class Thief : MonoBehaviour
 
     private void Update()
     {
+        movementVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         // Get current direction
-        if(Input.GetAxis("Vertical") < 0){
+        if (movementVector.y < -0.01)
+        {
             direction = 0; // DOWN
         }
-        if(Input.GetAxis("Vertical") > 0){
+        if(movementVector.y > 0.01)
+        {
             direction = 1; // UP
         }
-        if(Input.GetAxis("Horizontal") < 0){
+        if(movementVector.x < -0.01)
+        {
             direction = 2; // LEFT
         }
-        if(Input.GetAxis("Horizontal") > 0){
+        if(movementVector.x > 0.01)
+        {
             direction = 3; // RIGHT
         }
 
-        animator.SetInteger("Direction", direction);
-        float isMoving = Mathf.Abs(Input.GetAxis("Horizontal") + Input.GetAxis("Vertical"));
-        animator.SetFloat("Speed", isMoving);
-        Debug.Log(isMoving);
-        Debug.Log(direction);
+        float isMoving = Mathf.Abs(movementVector.x) + Mathf.Abs(movementVector.y);
 
-        movementVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (TurnManager.Instance.IsThiefTurn && !IsInteracting)
+        {
+            animator.SetInteger("Direction", direction);
+            animator.SetFloat("Speed", isMoving);
+        }
+
         if (movementVector.sqrMagnitude >= 1)
             movementVector.Normalize();
 
@@ -59,6 +64,16 @@ public class Thief : MonoBehaviour
     {
         myRigidBody.velocity = TurnManager.Instance.IsThiefTurn && !IsInteracting ? movementVector * speed : Vector2.zero;
 
+    }
+
+    public void OnStartTurn()
+    {
+        animator.speed = 1;
+    }
+
+    public void OnEndTurn()
+    {
+        animator.speed = 0;
     }
 
     public void AddScore(int score)
