@@ -7,7 +7,6 @@ public class TurnManager : MonoBehaviour
     public int turnCount;
     public float thiefTurnTime;
     public float securityTurnTime;
-    public Thief thief;
     public GameObject security;
 
     private int turnIndex;
@@ -47,15 +46,12 @@ public class TurnManager : MonoBehaviour
 
     private void initTurn()
     {
-        thief.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         if (IsThiefTurn)
         {
-            thief.enabled = true;
             security.SetActive(false);
         }
         else
         {
-            thief.enabled = false;
             security.SetActive(true);
         }
         turnStartTime = Time.time;
