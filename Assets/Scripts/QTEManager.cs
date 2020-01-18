@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class QTEManager : MonoBehaviour
 {
+    public static QTEManager Instance { get; private set; }
+
     public Action onSuccess;
     public QTETarget targetPrefab;
     
@@ -15,6 +17,11 @@ public class QTEManager : MonoBehaviour
     private List<QTETarget> targets = new List<QTETarget>();
 
     public bool IsInProgress => qteDuration > 0;
+
+    private void Start()
+    {
+        Instance = this;
+    }
 
     public void startQTE(int targetCount, float qteDuration, Action onSuccess)
     {

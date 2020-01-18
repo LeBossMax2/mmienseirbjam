@@ -10,6 +10,7 @@ public class QTETarget : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         manager.OnTargetHit(this);
+        eventData.Use();
         Destroy(gameObject);
     }
 }

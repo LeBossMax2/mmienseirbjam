@@ -6,7 +6,6 @@ using UnityEngine.Experimental.Rendering.LWRP;
 using UnityEngine.SceneManagement;
 
 public class lamp : MonoBehaviour {
-    public GameObject player;
     public float radius;
     public float totalDuration;
     public float blinkDuration;
@@ -73,7 +72,7 @@ public class lamp : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        if(!TurnManager.Instance.IsThiefTurn && !isOn && HasElectricity && !TurnManager.Instance.ActivatedLamp)
+        if(!TurnManager.Instance.IsThiefTurn && !isOn && HasElectricity && !TurnManager.Instance.ActivatedLamp && !QTEManager.Instance.IsInProgress)
         {
             TurnManager.Instance.ActivatedLamp = true;
             isOn = true;
@@ -86,7 +85,7 @@ public class lamp : MonoBehaviour {
     {
         if (isOn && hasElectricity && !isBlinking)
         {
-            Destroy(player);
+            SceneManager.LoadSceneAsync("EndScreen");
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

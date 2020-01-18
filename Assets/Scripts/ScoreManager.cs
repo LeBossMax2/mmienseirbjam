@@ -4,19 +4,18 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    private Slider slider;
-    //private Image slider;
+    private Image slider;
+    private int maxScore;
+
     void Start()
     {
-        slider = GetComponent<Slider>();
-        slider.maxValue = FindObjectsOfType<PaintingPickUp>().Select(p => p.PaintingScore).Sum();
-
-        //slider = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Image>();
+        slider = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Image>();
+        maxScore = FindObjectsOfType<PaintingPickUp>().Select(p => p.PaintingScore).Sum();
+        SetThiefScore(0);
     }
 
     public void SetThiefScore(int newScore)
     {
-        //slider.fillAmount = newScore ;
-        slider.value = newScore;
+        slider.fillAmount = (float)newScore / maxScore;
     }
 }

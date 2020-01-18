@@ -157,5 +157,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   radius: 2.5
-  totalDuration: 0
-  blinkDuration: 0
+  totalDuration: 25
+  blinkDuration: 1
