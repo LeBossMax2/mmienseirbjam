@@ -7,7 +7,7 @@ public class TurnManager : MonoBehaviour
     public int turnCount;
     public float thiefTurnTime;
     public float securityTurnTime;
-    public movement thief;
+    public Thief thief;
     public GameObject security;
 
     private int turnIndex;
