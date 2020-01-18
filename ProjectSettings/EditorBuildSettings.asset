@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sandbox.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: cc007e1bdd6616245938f50ca38750d8
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 595d47ffdb63d5944a27cd1bc0652259
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: c47d37caf04dace4e8ba2d878b83c0b6
   m_configObjects: {}

@@ -16,6 +16,7 @@ public class TurnManager : MonoBehaviour
     public PostProcessProfile securityProfile;
     public Thief thief;
     public GameObject lampParent;
+    public Animator timer;
 
     public bool ActivatedLamp { get; set; } = false;
 
@@ -24,7 +25,7 @@ public class TurnManager : MonoBehaviour
 
     public bool IsThiefTurn => turnIndex % 2 == 0;
 
-    public float CurrentTirnTime => IsThiefTurn ? thiefTurnTime : securityTurnTime;
+    public float CurrentTurnTime => IsThiefTurn ? thiefTurnTime : securityTurnTime;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class TurnManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Time.time - turnStartTime >= CurrentTirnTime)
+        if (Time.time - turnStartTime >= CurrentTurnTime)
         {
             nextTurn();
         }
@@ -74,6 +75,7 @@ public class TurnManager : MonoBehaviour
                 l.killZone.enabled = false;
             }
         }
+        timer.Play("TimerAnimation", 0, 1 - CurrentTurnTime / 10);
         turnStartTime = Time.time;
     }
 }
