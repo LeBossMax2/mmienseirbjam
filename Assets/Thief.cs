@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Thief : MonoBehaviour
 {
-    public int score;
+    public TurnManager turnManager;
+    public int score = 0;
     public float speed;
-    public Rigidbody2D myRigidBody;
+    private Rigidbody2D myRigidBody;
 
     private Vector2 movementVector;
+
+    public int paintingsCarriedScore { get; set; } = 0;
+    public int paintingsCarriedCount { get; set; } = 0;
+    public bool IsInteracting { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +31,7 @@ public class Thief : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        myRigidBody.velocity = movementVector * speed;
+        myRigidBody.velocity = turnManager.IsThiefTurn && !IsInteracting ? movementVector * speed : Vector2.zero;
 
     }
 }
