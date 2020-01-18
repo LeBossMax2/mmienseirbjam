@@ -53,14 +53,15 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
+  m_LightCookieSprite: {fileID: 21300000, guid: da2d193922fec2c409840fa3de58561f,
+    type: 3}
   m_UseNormalMap: 0
   m_LightOrder: 1
   m_AlphaBlendOnOverlap: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.1
-  m_PointLightOuterRadius: 2
+  m_PointLightOuterRadius: 2.5
   m_PointLightDistance: 1.36
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 12
@@ -92,7 +93,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 2.5
 --- !u!212 &8998416188738587261
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -154,5 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390e881b5905a1e42a65e6d971948ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  radius: 2.5
+  durability: 0
   state: 0

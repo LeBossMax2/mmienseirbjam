@@ -4,17 +4,18 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    private Slider slider;
-    
-    // Start is called before the first frame update
+    //private Slider slider;
+    private Image slider;
     void Start()
     {
-        slider = GetComponent<Slider>();
-        slider.maxValue = FindObjectsOfType<PaintingPickUp>().Select(p => p.PaintingScore).Sum();
+        //slider = GetComponent<Slider>();
+        //slider.maxValue = FindObjectsOfType<PaintingPickUp>().Select(p => p.PaintingScore).Sum();
+
+        //slider = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Image>();
     }
 
     public void SetThiefScore(int newScore)
     {
-        slider.value = newScore;
+        slider.fillAmount = newScore ;
     }
 }

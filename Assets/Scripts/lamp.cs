@@ -6,7 +6,7 @@ using UnityEngine.Experimental.Rendering.LWRP;
 
 public class lamp : MonoBehaviour {
 
-    public int radius;
+    public float radius;
     private Light2D light;
     private CircleCollider2D collider;
     public int durability;

@@ -17,23 +17,23 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 50
   threshold:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.7
   softKnee:
     overrideState: 0
     value: 0.5
   clamp:
     overrideState: 0
-    value: 65472
+    value: 64836.4
   diffusion:
     overrideState: 0
-    value: 7
+    value: 6.73
   anamorphicRatio:
     overrideState: 0
-    value: 0
+    value: 0.1
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Main Camera Profile
+  m_Name: NighVision
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 5644889525381594312}
@@ -86,7 +86,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.812
+    value: 0.648
   fastMode:
     overrideState: 0
     value: 0
