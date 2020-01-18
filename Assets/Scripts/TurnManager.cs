@@ -11,6 +11,10 @@ public class TurnManager : MonoBehaviour
     public float thiefTurnTime;
     public float securityTurnTime;
     public PostProcessVolume postProcess;
+    public PostProcessProfile thiefProfile;
+    public PostProcessProfile securityProfile;
+
+    public bool ActivatedLamp { get; set; } = false;
 
     private int turnIndex;
     public float turnStartTime { get; private set; }
@@ -42,8 +46,6 @@ public class TurnManager : MonoBehaviour
         }
         else
         {
-            //TODO tick lights
-
             initTurn();
         }
     }
@@ -52,11 +54,12 @@ public class TurnManager : MonoBehaviour
     {
         if (IsThiefTurn)
         {
-            postProcess.enabled = true;
+            postProcess.profile = thiefProfile;
         }
         else
         {
-            postProcess.enabled = false;
+            postProcess.profile = securityProfile;
+            ActivatedLamp = false;
         }
         turnStartTime = Time.time;
     }

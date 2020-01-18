@@ -72,8 +72,9 @@ public class lamp : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        if(!TurnManager.Instance.IsThiefTurn && !isOn && HasElectricity)
+        if(!TurnManager.Instance.IsThiefTurn && !isOn && HasElectricity && !TurnManager.Instance.ActivatedLamp)
         {
+            TurnManager.Instance.ActivatedLamp = true;
             isOn = true;
             activeTimer = Time.time - TurnManager.Instance.turnStartTime - TurnManager.Instance.securityTurnTime;
             isBlinking = true;
