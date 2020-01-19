@@ -5,11 +5,20 @@ using UnityEngine;
 public class PaintingPickUp : InteractionObject
 {
     public int PaintingScore;
+    public Sprite fakePaintingSprite;
+
+    private SpriteRenderer renderer;
+
+    private void Start()
+    {
+        renderer = GetComponent<SpriteRenderer>();
+    }
 
     protected override void OnInteractionEnded()
     {
         Thief.paintingsCarriedScore += PaintingScore;
         Thief.paintingsCarriedCount++;
-        Destroy(gameObject);
+        renderer.sprite = fakePaintingSprite;
+        this.enabled = false;
     }
 }
