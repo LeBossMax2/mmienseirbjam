@@ -11,14 +11,14 @@ public abstract class SecurityLight : MonoBehaviour {
     public float blinkDuration;
     public Collider2D killZone { get; private set; }
 
-    private bool isOn = false;
+    protected virtual bool isOn { get; set; } = false;
     private float activeTimer;
 
     private bool hasElectricity = true;
 
     private bool isBlinking = false;
 
-    public bool HasElectricity
+    public virtual bool HasElectricity
     {
         get => hasElectricity;
         set
@@ -29,8 +29,8 @@ public abstract class SecurityLight : MonoBehaviour {
     }
 
     protected abstract bool LightActive { set; }
-
-    protected virtual void Start()
+    
+    protected virtual void Awake()
     {
         // Get component
         killZone = this.GetComponent<Collider2D>();

@@ -170,6 +170,10 @@ MonoBehaviour:
   totalDuration: 25
   blinkDuration: 1
   radius: 2.5
+  offSprite: {fileID: 2599969905456701152, guid: 57589de836523d24e99895c8b3cd1586,
+    type: 3}
+  onSprite: {fileID: 4427790141269597716, guid: 57589de836523d24e99895c8b3cd1586,
+    type: 3}
 --- !u!1 &8684198401026555342
 GameObject:
   m_ObjectHideFlags: 0
