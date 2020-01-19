@@ -85,14 +85,14 @@ public class lamp : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isOn && hasElectricity && !isBlinking)
+        if (isOn && hasElectricity && !isBlinking && collision.CompareTag("Player"))
         {
             SceneManager.LoadSceneAsync("EndScreen");
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (isOn && hasElectricity && !isBlinking)
+        if (isOn && hasElectricity && !isBlinking && collision.CompareTag("Player"))
         {
             SceneManager.LoadSceneAsync("EndScreen");
         }

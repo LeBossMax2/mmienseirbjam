@@ -65,7 +65,7 @@ public class Thief : MonoBehaviour
 
     void FixedUpdate()
     {
-        myRigidBody.velocity = TurnManager.Instance.IsThiefTurn && !IsInteracting ? movementVector * speed : Vector2.zero;
+        myRigidBody.velocity = TurnManager.Instance.IsThiefTurn && !IsInteracting ? movementVector * (speed - paintingsCarriedCount) : Vector2.zero;
 
     }
 
