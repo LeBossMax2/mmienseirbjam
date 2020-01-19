@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public void startGame()
     {
-        SceneManager.LoadSceneAsync("Sandbox");
+        SceneManager.LoadSceneAsync("Main");
     }
 
     public void showHowToPlay()

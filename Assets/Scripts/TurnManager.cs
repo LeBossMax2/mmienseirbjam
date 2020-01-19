@@ -18,6 +18,7 @@ public class TurnManager : MonoBehaviour
     public GameObject lampParent;
     public Animator timer;
     public Animator partrait;
+    public AudioSource music;
 
     public bool ActivatedLamp { get; set; } = false;
 
@@ -80,6 +81,12 @@ public class TurnManager : MonoBehaviour
                 l.killZone.enabled = false;
             }
         }
+
+        if (turnIndex == turnCount - 2)
+        {
+            music.pitch /= 2;
+        }
+
         timer.Play("TimerAnimation", 0, 1 - CurrentTurnTime / 10);
         turnStartTime = Time.time;
     }
