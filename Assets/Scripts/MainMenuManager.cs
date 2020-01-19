@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void showHowToPlay()
     {
-
+        SceneManager.LoadSceneAsync("HowToPlay");
     }
 
     public void showOptions()
