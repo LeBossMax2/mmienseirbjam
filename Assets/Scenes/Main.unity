@@ -752,7 +752,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fakePaintingSprite
       value: 
-      objectReference: {fileID: 5363207663577449711, guid: 2fdbedbd225b4024dbd6103f4f7847ff,
+      objectReference: {fileID: -293486003855369427, guid: 8ac4ecfb21bad3b47b046615427f0a86,
         type: 3}
     - target: {fileID: 2963699616800967793, guid: 86aebbcda7dd35a42970c17c58d81f05,
         type: 3}
@@ -4062,6 +4062,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2966418744613905760, guid: 8ac4ecfb21bad3b47b046615427f0a86,
         type: 3}
+    - target: {fileID: 2963699616800967792, guid: 86aebbcda7dd35a42970c17c58d81f05,
+        type: 3}
+      propertyPath: fakePaintingSprite
+      value: 
+      objectReference: {fileID: 2966418744613905760, guid: 8ac4ecfb21bad3b47b046615427f0a86,
+        type: 3}
     - target: {fileID: 2963699616800967793, guid: 86aebbcda7dd35a42970c17c58d81f05,
         type: 3}
       propertyPath: m_Offset.y
@@ -4661,8 +4667,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fakePaintingSprite
       value: 
-      objectReference: {fileID: 5608785175549338359, guid: 2fdbedbd225b4024dbd6103f4f7847ff,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2963699616800967793, guid: 86aebbcda7dd35a42970c17c58d81f05,
         type: 3}
       propertyPath: m_Offset.y
@@ -5222,6 +5227,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2111149380772065141, guid: 8ac4ecfb21bad3b47b046615427f0a86,
+        type: 3}
+    - target: {fileID: 2963699616800967792, guid: 86aebbcda7dd35a42970c17c58d81f05,
+        type: 3}
+      propertyPath: fakePaintingSprite
+      value: 
+      objectReference: {fileID: 5608785175549338359, guid: 2fdbedbd225b4024dbd6103f4f7847ff,
         type: 3}
     - target: {fileID: 2963699616800967793, guid: 86aebbcda7dd35a42970c17c58d81f05,
         type: 3}

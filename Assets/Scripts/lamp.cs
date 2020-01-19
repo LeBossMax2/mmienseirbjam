@@ -5,7 +5,7 @@ using System;
 using UnityEngine.Experimental.Rendering.LWRP;
 using UnityEngine.SceneManagement;
 
-public class Lamp : SecurityLight {
+public class lamp : SecurityLight {
 
     public float radius;
     private new Light2D light;
