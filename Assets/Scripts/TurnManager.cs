@@ -64,7 +64,7 @@ public class TurnManager : MonoBehaviour
             postProcess.profile = thiefProfile;
             partrait.SetTrigger("Thief");
             partrait.ResetTrigger("Security");
-            foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
+            foreach (SecurityLight l in lampParent.GetComponentsInChildren<SecurityLight>())
             {
                 l.killZone.enabled = true;
             }
@@ -76,7 +76,7 @@ public class TurnManager : MonoBehaviour
             ActivatedLamp = false;
             partrait.SetTrigger("Security");
             partrait.ResetTrigger("Thief");
-            foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
+            foreach (SecurityLight l in lampParent.GetComponentsInChildren<SecurityLight>())
             {
                 l.killZone.enabled = false;
             }

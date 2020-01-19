@@ -19,6 +19,6 @@ public class PaintingPickUp : InteractionObject
         Thief.paintingsCarriedScore += PaintingScore;
         Thief.paintingsCarriedCount++;
         renderer.sprite = fakePaintingSprite;
-        this.enabled = false;
+        Destroy(this);
     }
 }

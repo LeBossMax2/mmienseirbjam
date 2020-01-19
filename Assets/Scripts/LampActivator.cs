@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LampActivator : MonoBehaviour
 {
-    private lamp parent;
+    private SecurityLight parent;
 
     private void Start()
     {
-        parent = GetComponentInParent<lamp>();
+        parent = GetComponentInParent<SecurityLight>();
     }
 
     void OnMouseDown()

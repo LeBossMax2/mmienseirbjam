@@ -19,7 +19,7 @@ public class ElectricityGenerator : InteractionObject
 
     protected override void OnInteractionEnded()
     {
-        foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
+        foreach (SecurityLight l in lampParent.GetComponentsInChildren<SecurityLight>())
         {
             l.HasElectricity = false;
         }
@@ -41,7 +41,7 @@ public class ElectricityGenerator : InteractionObject
         else
         {
             hasElectricity = true;
-            foreach (lamp l in lampParent.GetComponentsInChildren<lamp>())
+            foreach (SecurityLight l in lampParent.GetComponentsInChildren<SecurityLight>())
             {
                 l.HasElectricity = false;
             }
