@@ -28,31 +28,31 @@ public class Thief : MonoBehaviour
     {
         movementVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        // Get current direction
-        if (movementVector.y < -0.01)
-        {
-            direction = 0; // DOWN
-        }
-        if(movementVector.y > 0.01)
-        {
-            direction = 1; // UP
-        }
-        if(movementVector.x < -0.01)
-        {
-            direction = 2; // LEFT
-            this.transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
-        }
-        if(movementVector.x > 0.01)
-        {
-            direction = 3; // RIGHT
-            this.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
-
-        }
-
-        float isMoving = Mathf.Abs(movementVector.x) + Mathf.Abs(movementVector.y);
-
         if (TurnManager.Instance.IsThiefTurn && !IsInteracting)
         {
+            // Get current direction
+            if (movementVector.y < -0.01)
+            {
+                direction = 0; // DOWN
+            }
+            if (movementVector.y > 0.01)
+            {
+                direction = 1; // UP
+            }
+            if (movementVector.x < -0.01)
+            {
+                direction = 2; // LEFT
+                this.transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
+            }
+            if (movementVector.x > 0.01)
+            {
+                direction = 3; // RIGHT
+                this.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+
+            }
+
+            float isMoving = Mathf.Abs(movementVector.x) + Mathf.Abs(movementVector.y);
+
             animator.SetInteger("Direction", direction);
             animator.SetFloat("Speed", isMoving);
         }
