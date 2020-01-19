@@ -40,10 +40,13 @@ public class Thief : MonoBehaviour
         if(movementVector.x < -0.01)
         {
             direction = 2; // LEFT
+            this.transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
         }
         if(movementVector.x > 0.01)
         {
             direction = 3; // RIGHT
+            this.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+
         }
 
         float isMoving = Mathf.Abs(movementVector.x) + Mathf.Abs(movementVector.y);
