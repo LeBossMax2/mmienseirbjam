@@ -24,7 +24,11 @@ public abstract class SecurityLight : MonoBehaviour {
         set
         {
             hasElectricity = value;
-            LightActive = value && isOn;
+            if (!value)
+            {
+                isOn = false;
+                LightActive = false;
+            }
         }
     }
 

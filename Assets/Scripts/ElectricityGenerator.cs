@@ -43,7 +43,7 @@ public class ElectricityGenerator : InteractionObject
             hasElectricity = true;
             foreach (SecurityLight l in lampParent.GetComponentsInChildren<SecurityLight>())
             {
-                l.HasElectricity = false;
+                l.HasElectricity = true;
             }
         }
     }
