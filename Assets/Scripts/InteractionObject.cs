@@ -27,6 +27,7 @@ public abstract class InteractionObject : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (Thief == null && collision.GetComponent<Thief>() != null)
@@ -38,6 +39,17 @@ public abstract class InteractionObject : MonoBehaviour
                 Thief.IsInteracting = true;
                 OnInteractionStarted();
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        OnTriggerEnter2D(collision);
+
+        if (IsThiefColliding && Thief != null && collision.gameObject == Thief.gameObject && InteractionTime > 0 && !Thief.IsInteracting)
+        {
+            Thief.IsInteracting = true;
+            OnInteractionStarted();
         }
     }
 

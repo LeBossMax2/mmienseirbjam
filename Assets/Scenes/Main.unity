@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4170,12 +4170,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86aebbcda7dd35a42970c17c58d81f05, type: 3}
+--- !u!4 &907541158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1213952812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1022181515 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033553287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1033553287
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1525846436}
     m_Modifications:
     - target: {fileID: 6787908247175855364, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
@@ -4205,12 +4217,12 @@ PrefabInstance:
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
@@ -4225,7 +4237,7 @@ PrefabInstance:
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
@@ -4628,7 +4640,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1525846436}
     m_Modifications:
     - target: {fileID: 6161582300001531731, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
@@ -4678,17 +4690,17 @@ PrefabInstance:
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
@@ -4698,7 +4710,7 @@ PrefabInstance:
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6787908247175855417, guid: af6e891d2d7ccfc4aad0a3883942365c,
         type: 3}
@@ -5012,6 +5024,8 @@ Transform:
   - {fileID: 1743685421}
   - {fileID: 593034658}
   - {fileID: 13400151}
+  - {fileID: 907541158}
+  - {fileID: 1022181515}
   m_Father: {fileID: 468666871}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7162,16 +7176,6 @@ PrefabInstance:
     - target: {fileID: 1000718329358243511, guid: ae3c5f6c6704a2846995265c819fda85,
         type: 3}
       propertyPath: BaseInteractionTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4420003345646492078, guid: ae3c5f6c6704a2846995265c819fda85,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8650260070535346016, guid: ae3c5f6c6704a2846995265c819fda85,
-        type: 3}
-      propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
