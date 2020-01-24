@@ -10,8 +10,15 @@ public abstract class InteractionObject : MonoBehaviour
     protected float TimeSpent { get; private set; } = 0;
     protected bool IsThiefColliding { get; private set; } = false;
 
+    private ActionProgress progressBar;
+
     protected virtual float InteractionTime => BaseInteractionTime;
     protected bool IsInInteraction => IsThiefColliding && TimeSpent < InteractionTime;
+
+    private void Awake()
+    {
+        progressBar = FindObjectOfType<ActionProgress>();
+    }
 
     // Update is called once per frame
     private void Update()
@@ -37,6 +44,7 @@ public abstract class InteractionObject : MonoBehaviour
             if (InteractionTime > 0)
             {
                 Thief.IsInteracting = true;
+                progressBar.SetTimer(InteractionTime, transform.position);
                 OnInteractionStarted();
             }
         }
@@ -49,6 +57,7 @@ public abstract class InteractionObject : MonoBehaviour
         if (IsThiefColliding && Thief != null && collision.gameObject == Thief.gameObject && InteractionTime > 0 && !Thief.IsInteracting)
         {
             Thief.IsInteracting = true;
+            progressBar.SetTimer(InteractionTime, transform.position);
             OnInteractionStarted();
         }
     }

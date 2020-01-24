@@ -46,16 +46,7 @@ public class ElectricityGenerator : InteractionObject
                 l.HasElectricity = true;
             }
         }
-
-        /*List<Collider2D> colliders = new List<Collider2D>();
-        box.GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D().NoFilter(), colliders);
-        foreach (Collider2D col in colliders)
-        {
-            if (col.CompareTag("Player"))
-            {
-                col.GetComponent<Rigidbody2D>().
-            }
-        }*/
+        
         StartCoroutine(ExpolseObjectsFromCollision());
     }
 
