@@ -18,7 +18,7 @@ public class QTEManager : MonoBehaviour
 
     public bool IsInProgress => qteDuration > 0;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
     }

@@ -12,7 +12,7 @@ public class ElectricityGenerator : InteractionObject
 
     private bool hasElectricity = true;
 
-    private void Start()
+    private void Awake()
     {
         box = GetComponentInChildren<ElectricBox>();
     }

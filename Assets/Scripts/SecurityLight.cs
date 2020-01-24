@@ -13,6 +13,7 @@ public abstract class SecurityLight : MonoBehaviour {
 
     protected virtual bool isOn { get; set; } = false;
     private float activeTimer;
+    private AudioSource alarm;
 
     private bool hasElectricity = true;
 
@@ -37,7 +38,8 @@ public abstract class SecurityLight : MonoBehaviour {
     protected virtual void Awake()
     {
         // Get component
-        killZone = this.GetComponent<Collider2D>();
+        killZone = GetComponent<Collider2D>();
+        alarm = FindObjectOfType<AudioListener>().transform.Find("AlarmAudio").GetComponent<AudioSource>();
 
         // Init radius for each component and state
         LightActive = false;
@@ -89,14 +91,30 @@ public abstract class SecurityLight : MonoBehaviour {
     {
         if (isOn && hasElectricity && !isBlinking && collision.CompareTag("Player"))
         {
-            SceneManager.LoadSceneAsync("EndScreen");
+            StartCoroutine(loseGame(collision.GetComponent<Thief>()));
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (isOn && hasElectricity && !isBlinking && collision.CompareTag("Player"))
         {
-            SceneManager.LoadSceneAsync("EndScreen");
+            StartCoroutine(loseGame(collision.GetComponent<Thief>()));
         }
+    }
+
+    private IEnumerator loseGame(Thief player)
+    {
+        player.OnEndTurn();
+        player.enabled = false;
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        TurnManager.Instance.enabled = false;
+
+        float time = alarm.clip.length * 0.7f;
+        alarm.time = time;
+        alarm.Play();
+
+        yield return new WaitForSeconds(alarm.clip.length - time);
+
+        SceneManager.LoadSceneAsync("EndScreen");
     }
 }

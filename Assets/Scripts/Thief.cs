@@ -18,7 +18,7 @@ public class Thief : MonoBehaviour
     public int paintingsCarriedCount { get; set; } = 0;
     public bool IsInteracting { get; set; }
 
-    void Start()
+    void Awake()
     {
         direction = 0; // Init with down position
         myRigidBody = GetComponent<Rigidbody2D>();

@@ -7,18 +7,18 @@ public class PaintingPickUp : InteractionObject
     public int PaintingScore;
     public Sprite fakePaintingSprite;
 
-    private SpriteRenderer renderer;
+    private SpriteRenderer spriteRenderer;
 
-    private void Start()
+    private void Awake()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected override void OnInteractionEnded()
     {
         Thief.paintingsCarriedScore += PaintingScore;
         Thief.paintingsCarriedCount++;
-        renderer.sprite = fakePaintingSprite;
+        spriteRenderer.sprite = fakePaintingSprite;
         Destroy(this);
     }
 }

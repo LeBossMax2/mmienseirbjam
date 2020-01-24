@@ -29,9 +29,13 @@ public class TurnManager : MonoBehaviour
 
     public float CurrentTurnTime => IsThiefTurn ? thiefTurnTime : securityTurnTime;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
         initTurn();
     }
 

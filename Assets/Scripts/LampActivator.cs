@@ -6,7 +6,7 @@ public class LampActivator : MonoBehaviour
 {
     private SecurityLight parent;
 
-    private void Start()
+    private void Awake()
     {
         parent = GetComponentInParent<SecurityLight>();
     }
