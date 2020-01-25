@@ -52,7 +52,8 @@ public class TurnManager : MonoBehaviour
         turnIndex++;
         if (turnIndex >= turnCount)
         {
-            SceneManager.LoadSceneAsync("EndScreen");
+            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+            EndGameManager.EndGame(scoreManager.Score > scoreManager.MaxScore / 2);
         }
         else
         {

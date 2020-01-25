@@ -5,7 +5,17 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     private Image slider;
-    private int maxScore;
+    public int MaxScore { get; private set; }
+    private int score = 0;
+    public int Score
+    {
+        get => score;
+        set
+        {
+            score = value;
+            slider.fillAmount = (float)value / MaxScore;
+        }
+    }
 
     private void Awake()
     {
@@ -14,12 +24,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        maxScore = FindObjectsOfType<PaintingPickUp>().Select(p => p.PaintingScore).Sum();
-        SetThiefScore(0);
-    }
-
-    public void SetThiefScore(int newScore)
-    {
-        slider.fillAmount = (float)newScore / maxScore;
+        MaxScore = FindObjectsOfType<PaintingPickUp>().Select(p => p.PaintingScore).Sum();
+        Score = 0;
     }
 }

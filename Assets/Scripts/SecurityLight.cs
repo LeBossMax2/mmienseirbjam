@@ -14,6 +14,7 @@ public abstract class SecurityLight : MonoBehaviour {
     protected virtual bool isOn { get; set; } = false;
     private float activeTimer;
     private AudioSource alarm;
+    private bool gameLost = false;
 
     private bool hasElectricity = true;
 
@@ -89,14 +90,14 @@ public abstract class SecurityLight : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isOn && hasElectricity && !isBlinking && collision.CompareTag("Player"))
+        if (isOn && hasElectricity && !isBlinking && collision.CompareTag("Player") && !gameLost)
         {
             StartCoroutine(loseGame(collision.GetComponent<Thief>()));
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (isOn && hasElectricity && !isBlinking && collision.CompareTag("Player"))
+        if (isOn && hasElectricity && !isBlinking && collision.CompareTag("Player") && !gameLost)
         {
             StartCoroutine(loseGame(collision.GetComponent<Thief>()));
         }
@@ -104,6 +105,7 @@ public abstract class SecurityLight : MonoBehaviour {
 
     private IEnumerator loseGame(Thief player)
     {
+        gameLost = true;
         player.OnEndTurn();
         player.enabled = false;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -115,6 +117,6 @@ public abstract class SecurityLight : MonoBehaviour {
 
         yield return new WaitForSeconds(alarm.clip.length - time);
 
-        SceneManager.LoadSceneAsync("EndScreen");
+        EndGameManager.EndGame(false);
     }
 }

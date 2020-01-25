@@ -15,7 +15,7 @@ public abstract class InteractionObject : MonoBehaviour
     protected virtual float InteractionTime => BaseInteractionTime;
     protected bool IsInInteraction => IsThiefColliding && TimeSpent < InteractionTime;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         progressBar = FindObjectOfType<ActionProgress>();
     }

@@ -9,8 +9,9 @@ public class PaintingPickUp : InteractionObject
 
     private SpriteRenderer spriteRenderer;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

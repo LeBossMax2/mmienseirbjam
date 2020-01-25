@@ -8,7 +8,6 @@ public class Thief : MonoBehaviour
     public ScoreManager scoreManager;
     private int direction; // 0 = DOWN / 1 = UP / 2 = LEFT / 3 = RIGHT
     public Animator animator;
-    private int score = 0;
     public float speed;
     private Rigidbody2D myRigidBody;
 
@@ -81,7 +80,6 @@ public class Thief : MonoBehaviour
 
     public void AddScore(int score)
     {
-        this.score += score;
-        scoreManager.SetThiefScore(this.score);
+        scoreManager.Score += score;
     }
 }

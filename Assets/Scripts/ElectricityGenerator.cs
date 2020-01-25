@@ -12,8 +12,9 @@ public class ElectricityGenerator : InteractionObject
 
     private bool hasElectricity = true;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         box = GetComponentInChildren<ElectricBox>();
     }
 
